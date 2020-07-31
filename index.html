@@ -1,0 +1,42 @@
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='UTF-8'>
+        <meta name='viewport' content='user-scalable=no'>
+        <meta name='viewport' content='width=device-width initial-scale=1'>
+        <meta name='format-detection' content='telephone=no,email=no,adress=no'>
+		<script src="https://github.com/PaPazhao/demo/blob/master/dm-sdk.js"></script>
+		<title>GachaJsSDK 0.0.1</title>
+	</head>
+	<body>
+         <p id='userInfo' style="word-break:break-word;">Click button to get userInfo</p>
+		<button onclick='infoButtonClick()'>Get UserInfo</button>
+	</body>
+	<script>
+
+		function infoButtonClick() {
+			document.getElementById('userInfo').innerHTML = 'Loading';
+			GachaSDK.getUserInfo({
+				id: 'danqu', 
+				success: function(info) {
+					document.getElementById('userInfo').innerHTML = JSON.stringify(info, null, '\t');
+				},
+				error: function (error) {
+					document.getElementById('userInfo').innerHTML = 'Error: ' + error;
+				}
+			});
+		}
+	</script>
+
+
+
+<script type="text/javascript" src="https://cdn.bootcss.com/vConsole/3.3.0/vconsole.min.js"></script>
+
+<script>
+    var vConsole = new VConsole();
+    console.log('Hello world');
+</script>
+
+</html>
